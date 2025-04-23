@@ -1,0 +1,33 @@
+name: Variáveis de Ambiente Demo
+
+on:
+    workflow_dispatch:
+
+env:
+  CUSTOM_VAR: "Valor definido no workflow"
+
+jobs:
+  show-vars:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Mostrar todas as variáveis
+        run: |
+          echo "=== Variáveis do GitHub ==="
+          echo "Repositório: $GITHUB_REPOSITORY"
+          echo "SHA: $GITHUB_SHA"
+          echo "Actor: $GITHUB_ACTOR"
+          
+          echo "=== Variáveis Customizadas ==="
+          echo "Custom: $CUSTOM_VAR"
+          
+          echo "=== Variáveis do Sistema ==="
+          echo "PATH: $PATH"
+          echo "Usuário: $(whoami)"
+          echo "Diretório atual: $(pwd)"
+          
+          echo "=== Variáveis do Runner ==="
+          echo "OS: $RUNNER_OS"
+          echo "Workspace: $GITHUB_WORKSPACE"
+          
+          echo "=== Todas as variáveis (debug) ==="
+          env | sort
