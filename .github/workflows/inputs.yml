@@ -1,0 +1,33 @@
+name: Environment Variables and Input in Workflow
+
+on:
+    workflow_dispatch:
+      inputs:
+        message:
+          description: 'Text to display'
+          required: true
+          default: 'Hello world'
+        count:
+          description: 'Number of times to repeat'
+          type: number
+          default: 1
+        verbose:
+          description: 'Enable verbose mode'
+          type: boolean
+          default: false
+        environment:
+          description: 'Deployment environment'
+          type: choice
+          options:
+            - dev
+            - staging
+            - production
+          default: 'dev'
+jobs:
+  env-vars:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print env vars
+        run: |
+          echo "Custom message: ${{ github.event.inputs.message }}"
+          echo "Deployment environment: ${{ github.event.inputs.environment }}"
