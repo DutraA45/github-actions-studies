@@ -24,7 +24,7 @@ on:
             - production
           default: 'dev'
 jobs:
-  env-vars:
+  inputs:
     runs-on: ubuntu-latest
     steps:
       - name: Print inputs
