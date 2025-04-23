@@ -1,4 +1,4 @@
-name: Environment Variables and Input in Workflow
+name: Receiving Inputs in Workflow
 
 on:
     workflow_dispatch:
