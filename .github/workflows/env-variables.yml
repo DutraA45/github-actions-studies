@@ -9,11 +9,11 @@ on:
         default: 'Default message'
 
 jobs:
-    env-vars:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Print env vars
-              run: |
-              echo "Repository: $GITHUB_REPOSITORY"
-              echo "Run ID: $GITHUB_RUN_ID"
-              echo "Custom message: ${{ github.event.inputs.custom_message }}"
+  env-vars:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print env vars
+        run: |
+          echo "Repository: $GITHUB_REPOSITORY"
+          echo "Run ID: $GITHUB_RUN_ID"
+          echo "Custom message: ${{ github.event.inputs.custom_message }}"
