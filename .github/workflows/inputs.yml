@@ -27,7 +27,7 @@ jobs:
   env-vars:
     runs-on: ubuntu-latest
     steps:
-      - name: Print env vars
+      - name: Print inputs
         run: |
           echo "Custom message: ${{ github.event.inputs.message }}"
           echo "Deployment environment: ${{ github.event.inputs.environment }}"
