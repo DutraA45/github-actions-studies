@@ -1,0 +1,25 @@
+name: Job Dependencies Example
+
+on:
+    workflow_dispatch:
+
+jobs:
+  preparar-ambiente:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Passo 1 - Criar arquivo
+        run: echo "Conteúdo inicial" > arquivo.txt
+
+  processar-dados:
+    needs: preparar-ambiente  
+    runs-on: ubuntu-latest
+    steps:
+      - name: Passo 2 - Ler arquivo
+        run: cat arquivo.txt
+
+  notificar:
+    needs: processar-dados  
+    runs-on: ubuntu-latest
+    steps:
+      - name: Passo 3 - Notificar
+        run: echo "Pipeline concluído!"
