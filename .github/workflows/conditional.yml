@@ -1,0 +1,21 @@
+name: Conditional Workflow
+
+on:
+  workflow_dispatch:
+    inputs:
+      run_extra_step:
+        description: 'Run extra step?'
+        required: true
+        type: boolean
+        default: false
+
+jobs:
+  conditional:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Main step
+        run: echo "This always runs"
+      
+      - name: Extra step
+        if: ${{ github.event.inputs.run_extra_step == 'true' }}
+        run: echo "This runs only when requested"
