@@ -1,4 +1,4 @@
-name: Teste Matrix Simples
+name: Simple Job Matrix
 
 on: 
     workflow_dispatch:
